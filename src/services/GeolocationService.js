@@ -5,6 +5,7 @@ import {
 } from "react-native";
 
 function checkLocation(messages) {
+  console.log("CALL!!!! checkLocation");
   if (Platform.OS !== 'ios') {
     LocationServicesDialogBox.forceCloseDialog();
     LocationServicesDialogBox.checkLocationServicesIsEnabled({

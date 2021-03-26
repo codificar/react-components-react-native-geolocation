@@ -1,0 +1,30 @@
+{
+  "name": "react-native-geolocation",
+  "version": "1.0.0",
+  "description": "A geolocation component to react native",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://git.codificar.com.br/react-components/react-native-geolocation"
+  },
+  "dependencies": {
+    "react-native-vector-icons": "^7.1.0",
+    "react-native-modal": "^11.5.6",
+    "react-native-settings": "^0.2.3",
+    "react-native-geolocation-service": "^5.1.1",
+    "react-native-android-location-services-dialog-box": "^2.8.2"
+  },
+  "peerDependencies": {
+    "react-native": ">=0.47.0"
+  },
+  "author": "Codificar",
+  "bugs": {
+    "url": "https://git.codificar.com.br/react-components/react-native-geolocation/issues"
+  },
+  "homepage": "https://git.codificar.com.br/react-components/react-native-geolocation#readme"
+}

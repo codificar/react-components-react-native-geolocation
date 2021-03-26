@@ -5,8 +5,8 @@ import {
 } from "react-native";
 
 function checkLocation(messages) {
-  LocationServicesDialogBox.forceCloseDialog();
   if (Platform.OS !== 'ios') {
+    LocationServicesDialogBox.forceCloseDialog();
     LocationServicesDialogBox.checkLocationServicesIsEnabled({
       message: messages.text,
       ok: messages.yes,
@@ -17,8 +17,7 @@ function checkLocation(messages) {
       preventOutSideTouch: true,
       preventBackClick: true,
       providerListener: true
-    }).catch((error) => {
-      
+    }).catch((error) => {      
     });
   }
 }

@@ -3,9 +3,9 @@ import LocationServicesDialogBox from "react-native-android-location-services-di
 import {
 	Platform
 } from "react-native";
+import RNSettings from "react-native-settings";
 
-function checkLocation(messages) {
-  console.log("CALL!!!! checkLocation");
+function showAndroidCheckLocation(messages) {
   if (Platform.OS !== 'ios') {
     LocationServicesDialogBox.forceCloseDialog();
     LocationServicesDialogBox.checkLocationServicesIsEnabled({
@@ -23,8 +23,18 @@ function checkLocation(messages) {
   }
 }
 
-module.exports = {
-  watchLocation(onSuccess, messages = { text: "Habilite o GPS", yes: "Habilitar", no: "Não Habilitar" }, options = { showLocationDialog: false, enableHighAccuracy: true, timeout: 1000 }, onError = checkLocation) {
+module.exports = {  
+  async checkLocation() {
+    const response = await RNSettings.getSetting(RNSettings.LOCATION_SETTING).then((result) => {        
+      if (result == RNSettings.ENABLED) {          
+       return true
+      } else {
+       return false
+      }
+    });
+    return response
+  },
+  watchLocation(onSuccess, messages = { text: "Habilite o GPS", yes: "Habilitar", no: "Não Habilitar" }, options = { showLocationDialog: false, enableHighAccuracy: true, timeout: 1000 }, onError = showAndroidCheckLocation) {
     const watchID =Geolocation.watchPosition(position => {
       onSuccess(position)
     }, error => {
@@ -35,7 +45,7 @@ module.exports = {
     return watchID
   },
 
-  getCurrentLocation(onSuccess, messages = { text: "Habilite o GPS", yes: "Habilitar", no: "Não Habilitar" }, options = { showLocationDialog: false, enableHighAccuracy: true, timeout: 1000}, onError = checkLocation) {
+  getCurrentLocation(onSuccess, messages = { text: "Habilite o GPS", yes: "Habilitar", no: "Não Habilitar" }, options = { showLocationDialog: false, enableHighAccuracy: true, timeout: 1000}, onError = showAndroidCheckLocation) {
     const watchID =Geolocation.getCurrentPosition(position => {
       onSuccess(position)
     }, error => {

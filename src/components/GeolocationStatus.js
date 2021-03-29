@@ -10,17 +10,17 @@ import React, { useState, useEffect } from "react";
 import { Colors, Fonts, Size } from "../themes";
 
 export default function GeolocationStatus({
-  title,
-  subtitle,
-  icon,
+  title="Habilite seu GPS",
+  subtitle="Para usar o app habilite seu GPS",
+  btntext="Habilitar",
+  icon="map-marker-check-outline",
+  goWithoutText="Continuar sem GPS",
   image = null,
-  btntext,
+  showGoWithout = false,
   onEnableLocation,
   onDisableLocation,
   onPressModalButton,
   onPressGoWithoutButton,
-  showGoWithout = false,
-  goWithoutText = ""
 }) {
   const [gpsEvent, setGpsEvent] = useState(null);
   const [showModal, setShowModal] = useState(true);

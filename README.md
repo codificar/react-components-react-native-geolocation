@@ -13,6 +13,30 @@ $ yarn
 or
 $ npm install 
 ```
+## On Android
+
+```java
+import android.content.IntentFilter;
+import io.rumors.reactnativesettings.RNSettingsPackage;
+import io.rumors.reactnativesettings.receivers.GpsLocationReceiver;
+import io.rumors.reactnativesettings.receivers.AirplaneModeReceiver;
+
+  public void onCreate() {
+    super.onCreate();
+    SoLoader.init(this, /* native exopackage */ false);
+    initializeFlipper(this); 
+	
+	// #### ADD THIS ##### ->
+    registerReceiver(new GpsLocationReceiver(), new IntentFilter("android.location.PROVIDERS_CHANGED"));
+    registerReceiver(new AirplaneModeReceiver(), new IntentFilter("android.intent.action.AIRPLANE_MODE"));
+  }
+```
+```
+ cd android/
+ ./gradlew clean  
+ cd ..
+ react-native run-android
+```
 
 ## Basic Usage GeolocationStatus
 

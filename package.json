@@ -17,6 +17,7 @@
     "react-native-modal": "^11.5.6",
     "react-native-settings": "^0.2.3",
     "react-native-geolocation-service": "^5.1.1",
+    "@react-native-community/geolocation": "^2.0.2",
     "react-native-android-location-services-dialog-box": "^2.8.2"
   },
   "peerDependencies": {

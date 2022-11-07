@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity, Image, Platform } from "react-native";
 import Modal from "react-native-modal";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
@@ -77,18 +77,27 @@ export default function GeolocationStatus({
             </View>
             <View style={styles.footer}>
               {
-                showGoWithout ? 
-                  <TouchableOpacity style={styles.btn} onPress={goWithout}>
-                    <Text style={styles.txtButtonRegister}>{goWithoutText}</Text>
-                  </TouchableOpacity>
-                  :
-                  <>
-                  
-                  </>
+                showGoWithout ?
+                  (Platform.OS === 'android' ? (
+                    <TouchableOpacity style={styles.btn} onPress={goWithout}>
+                      <Text style={styles.txtButtonRegister}>{goWithoutText}</Text>
+                    </TouchableOpacity>
+                  ) : (
+                    <TouchableOpacity style={styles.btn} onPress={goWithout}>
+                      <Text style={styles.txtButtonRegister}>{'OK'}</Text>
+                    </TouchableOpacity>
+                  ))
+                :
+                  <></>
               }
-              <TouchableOpacity style={styles.btn} onPress={onPressModalButton}>
-                <Text style={styles.txtButtonRegister}>{btntext}</Text>
-              </TouchableOpacity>
+              {
+                Platform.OS === 'android' ? (
+                  <TouchableOpacity style={styles.btn} onPress={onPressModalButton}>
+                      <Text style={styles.txtButtonRegister}>{btntext}</Text>
+                  </TouchableOpacity>)
+                : 
+                  <></>
+              }
               
             </View>
           </View>

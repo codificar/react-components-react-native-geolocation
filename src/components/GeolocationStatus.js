@@ -15,6 +15,7 @@ export default function GeolocationStatus({
   btntext="Habilitar",
   icon="map-marker-check-outline",
   goWithoutText="Continuar sem GPS",
+  iosText="OK",
   image = null,
   showGoWithout = false,
   onEnableLocation,
@@ -84,7 +85,7 @@ export default function GeolocationStatus({
                     </TouchableOpacity>
                   ) : (
                     <TouchableOpacity style={styles.btn} onPress={goWithout}>
-                      <Text style={styles.txtButtonRegister}>{'OK'}</Text>
+                      <Text style={styles.txtButtonRegister}>{iosText}</Text>
                     </TouchableOpacity>
                   ))
                 :

@@ -25,6 +25,7 @@ import { GeolocationStatus} from "react-native-geolocation"
 		btntext="Habilitar"
 		icon="map-marker-check-outline"
 		goWithoutText="Continuar sem GPS"
+  		iosText="OK"
 		image={images.free_map}
 		showGoWithout={!hasRequest}
 

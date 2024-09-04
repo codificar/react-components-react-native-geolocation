@@ -10,7 +10,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://git.codificar.com.br/react-components/react-native-geolocation"
+    "url": "git+https://github.com/codificar/react-components-react-native-geolocation"
   },
   "dependencies": {
     "react-native-vector-icons": "^7.1.0",
@@ -24,7 +24,7 @@
   },
   "author": "Codificar",
   "bugs": {
-    "url": "https://git.codificar.com.br/react-components/react-native-geolocation/issues"
+    "url": "https://github.com/codificar/react-components-react-native-geolocation/issues"
   },
-  "homepage": "https://git.codificar.com.br/react-components/react-native-geolocation#readme"
+  "homepage": "https://github.com/codificar/react-components-react-native-geolocation#readme"
 }
